@@ -1,0 +1,9 @@
+:root {
+    --color-accent: #325C81;
+    --color-background-header: var(--color-accent);
+    --color-background-page: #0851A6;
+    --color-background-card: #689BC4;
+    --color-background-header-text: #EBC7F9;
+    --color-text: white;
+    --color-link: #B1ECC3;
+  }

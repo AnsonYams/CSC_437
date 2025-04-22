@@ -1,0 +1,28 @@
+h1 {
+    color: var(--color-text);
+    background-color: var(--background-header);
+  }
+
+h2 {
+    color: var(--color-background-header-text);
+    background-color: var(--background-card);
+  }
+
+body {
+    color: var(--color-text);
+    background-color: var(--color-background-page);
+}
+
+.cuisine {
+    color: var(--color-text);
+    text-decoration: none;
+    border: var(--color-text) 1px solid;
+    width: fit-content;
+    text-align: center;
+    padding: 0.2rem;
+}
+
+a[href]{
+    color: var(--color-link);
+    text-decoration: none;
+}
