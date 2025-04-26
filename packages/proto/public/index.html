@@ -2,48 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <link rel="stylesheet" href="/styles/reset.css" />
+  <link rel="stylesheet" href="/styles/home.css" />
   <link rel="stylesheet" href="/styles/page.css" />
   <link rel="stylesheet" href="/styles/tokens.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Tienne:wght@400;700;900&display=swap" rel="stylesheet">
   <title>Food Finder</title>
 </head>
-<body>
-  <h1>Welcome to Food Finder!</h1>
-  <h2>Select a Cuisine:</h2>
-    <dl>
-      <dd class="cuisine"><a href="cuisines/fastfood.html">Fast Food</a>       
+<body class="page">
+  <header>
+    <h1 id="Logo">
+      <span>
         <svg class="icon">
-          <use href="/icons/cuisines.svg#icon-fastfood"></use>
+          <use href="/icons/header.svg#icon-logo"></use>
         </svg>
-    </dd>
-    </br>
-    <dd class="cuisine"><a href="cuisines/thai.html">Thai</a>       
-      <svg class="icon">
-        <use href="/icons/cuisines.svg#icon-thai"></use>
-      </svg>
-  </dd>
-    </br>
-      <dd class="cuisine"> <a href="cuisines/italian.html">Italian</a>
+        Food Finder
+      </span>
+      Home
+      <span>
         <svg class="icon">
-          <use href="/icons/cuisines.svg#icon-italian"></use>
+          <use href="/icons/header.svg#icon-user"></use>
         </svg>
-      </dd>
-    </br>
-    <dd class="cuisine"> <a href="cuisines/japanese.html">Japanese</a>
-      <svg class="icon">
-        <use href="/icons/cuisines.svg#icon-japanese"></use>
-      </svg>
-    </dd>
-  </br>
-  <dd class="cuisine"> <a href="cuisines/mexican.html">Mexican</a>
-    <svg class="icon">
-      <use href="/icons/cuisines.svg#icon-mexican"></use>
-    </svg>
-  </dd>
-    </dl>
+        Account
+    </span>
+    </h1>
+    <h1>Select a Cuisine:</h1>
+  </header>
+  <main>
+    <a href="cuisines/fastfood.html">
+      <div class="cuisine">
+        Fast Food   
+          </br>    
+          <svg class="icon-flag">
+            <use href="/icons/cuisines.svg#icon-fastfood"></use>
+          </svg> 
+      </div>
+    </a>
+    <a href="cuisines/thai.html">
+      <div class="cuisine">
+          Thai   
+        </br>     
+          <svg class="icon-flag">
+            <use href="/icons/cuisines.svg#icon-thai"></use>
+          </svg>
+      </div>
+    </a>  
+    <a href="cuisines/italian.html">
+      <div class="cuisine"> 
+        Italian
+        </br>   
+          <svg class="icon-flag">
+            <use href="/icons/cuisines.svg#icon-italian"></use>
+          </svg>
+      </div>
+    </a>
+    <a href="cuisines/japanese.html">
+      <div class="cuisine"> 
+        Japanese
+        </br>   
+          <svg class="icon-flag">
+            <use href="/icons/cuisines.svg#icon-japanese"></use>
+          </svg>
+      </div>
+    </a>
+    <a href="cuisines/mexican.html">
+      <div class="cuisine"> 
+        Mexican
+        </br>   
+          <svg class="icon-flag">
+            <use href="/icons/cuisines.svg#icon-mexican"></use>
+          </svg>
+      </div>
+    </a>
+
+    <a href="cuisines/chinese.html">
+      <div class="cuisine"> 
+        Chinese
+        </br>   
+          <svg class="icon-flag">
+            <use href="/icons/cuisines.svg#icon-chinese"></use>
+          </svg>
+      </div>
+    </a>
+  </main>
 
 </body>
 </html>

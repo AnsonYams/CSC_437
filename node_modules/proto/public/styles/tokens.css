@@ -6,4 +6,28 @@
     --color-background-header-text: #EBC7F9;
     --color-text: white;
     --color-link: #B1ECC3;
+
+    --padding-header: 2rem;
+    --padding-med: 1rem;
+    --padding-small: 0.5rem;
+
+    --font-size-header: 2.5rem;
+    --font-size-subheader: 2rem;
+    --font-size-text: 1.5rem;
+    --font-size-small: 1rem;
+
+    --font-weight-header: 700;
+    --font-weight-subheader: 500;
+    --font-weight-text: 300;
+
+    --font-family-header: "Tienne", serif;
+    --font-family-text: "Lexend", sans-serif;
+
+    --margin-big: 2rem;
+    --margin-medium: 1rem;
+    --margin-small: 0.5rem;
+
+    --icon-size-big: 10rem;
+    --icon-size-medium: 5rem;
+    --icon-size-small: 2rem;
   }

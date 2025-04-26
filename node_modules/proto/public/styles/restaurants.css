@@ -1,0 +1,17 @@
+.restaurants {
+  display: flex;
+  flex-flow: row wrap;
+  font-size: var(--font-size-subheader);
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-text);
+}
+
+li{
+  padding: var(--padding-med);
+  margin: var(--margin-small);
+  flex: 2;
+  min-width: fit-content;
+  border: 1px solid var(--color-link);
+  border-radius: 50%;
+  text-align: center;
+}

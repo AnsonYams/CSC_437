@@ -1,46 +1,48 @@
-h1 {
+#Logo {
     color: var(--color-text);
-    background-color: var(--background-header);
-    font-family: "Cantata One", serif;
-    font-size: 2.5rem;
-    font-weight: 700;
+    background-color: var(--color-background-header);
+    font-family: var(--font-family-header);
+    font-size: var(--font-size-header);
+    font-weight: var(--font-weight-header);
+    display: flex;
+    align-items: baseline;
+    align-content: center;
+    justify-content: space-between;
+    padding-left: var(--padding-header);
+    text-align: center;
+    padding-right: var(--padding-header);
   }
 
-h2 {
-    color: var(--color-background-header-text);
-    background-color: var(--background-card);
-    font-family: "Tienne", serif;
-    font-style: italic;
-    font-size: 2rem;
-    font-weight: 500;
-  }
+header a[href]{
+  color: currentColor;
+  text-decoration: none;
+}
+
+h1 {
+  color: var(--color-background-header-text);
+  font-family: var(--font-family-header);
+  font-style: italic;
+  font-size: var(--font-size-subheader);
+  font-weight: var(--font-weight-subheader);
+}
 
 body {
     color: var(--color-text);
-    font-family: "Lexend", sans-serif;
+    font-family: var(--font-family-text);
     background-color: var(--color-background-page);
-}
-
-.cuisine {
-    color: var(--color-text);
-    text-decoration: none;
-    border: var(--color-text) 1px solid;
-    width: fit-content;
-    text-align: center;
-    padding: 0.2rem;
+    font-weight: var(--font-weight-text);
 }
 
 a[href]{
-    color: var(--color-link);
-    text-decoration: none;
+  color: var(--color-link);
+  text-decoration: none;
 }
 
 svg.icon {
   display: inline;
-  height: 7em;
-  width: 7em;
+  height: var(--icon-size-medium);
+  width: var(--icon-size-medium);
   vertical-align: middle;
-  fill: var(--color-link);
-  color: var(--color-link);
-  margin: 0.5em;
+  fill: var(--color-text);
+  color: var(--color-text);
 }

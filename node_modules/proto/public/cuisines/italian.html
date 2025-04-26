@@ -1,16 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="/styles/reset.css" />
   <link rel="stylesheet" href="/styles/page.css" />
   <link rel="stylesheet" href="/styles/tokens.css" />
-  <title>Italian Cuisine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Tienne:wght@400;700;900&display=swap" rel="stylesheet">
+  <title>Food Finder</title>
 </head>
-<body>
-  <h1>Italian Cuisine</h1>
-  <h2>Restaurants:</h2> 
-  <dl>
-    <dt><a href="../restaurants/Giuseppes.html">Giuseppes</a></dt>
-    <dd>Serves: <a href="../food/pasta.html">Pasta</a></dd>
-  </dl>
-
-  <p><a href="../index.html">Back to Home</a></p
+<body class="page">
+  <header>
+    <h1 id="Logo">
+      <a href="../index.html">
+        <span>
+            <svg class="icon">
+              <use href="/icons/header.svg#icon-logo"></use>
+            </svg>
+            Food Finder
+        </span>
+      </a>
+      Italian
+      <span>
+        <svg class="icon">
+          <use href="/icons/header.svg#icon-user"></use>
+        </svg>
+        Account
+    </span>
+    </h1>
+  </header>
+  <main>
+    <h1>Italian</h1>
+    <h2>Restaurants:</h2> 
+    <dl>
+      <dt> <a href="../restaurants/giuseppes.html">Giuseppes</a></dt>
+      <dd> Serves: <a href="../food/pasta.html">Pasta</a> </dd>
+    </dl>
+  </main>
+</body>
+</html>
