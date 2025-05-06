@@ -28,7 +28,18 @@
         Account
     </span>
     </h1>
-    <h1>Select a Cuisine:</h1>
+    <div id="topbar">
+      <h1>Select a Cuisine:</h1>
+      <label class="switch" onchange="
+      event.stopPropagation();
+      relayEvent(
+        event,
+        'light-mode',
+        {checked: event.target.checked})">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+    </div>
   </header>
   <main>
     <a href="cuisines/fastfood.html">
@@ -87,6 +98,23 @@
       </div>
     </a>
   </main>
-
 </body>
+<script>
+  function relayEvent(originalEvent, newEventName, detail = {}) {
+    originalEvent.stopPropagation();
+
+    const customEvent = new CustomEvent(newEventName, {
+      bubbles: true,
+      detail: detail
+    });
+
+    originalEvent.target.dispatchEvent(customEvent);
+  }
+
+  document.body.addEventListener("light-mode", (event) => {
+    const checked = event.detail.checked;
+    document.body.classList.toggle("light-mode", checked);
+  });
+</script>
+
 </html>

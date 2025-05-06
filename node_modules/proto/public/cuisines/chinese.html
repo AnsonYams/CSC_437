@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <link rel="stylesheet" href="/styles/reset.css" />
   <link rel="stylesheet" href="/styles/page.css" />
+  <link rel="stylesheet" href="/styles/restaurants.css" />
   <link rel="stylesheet" href="/styles/tokens.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,12 +32,38 @@
     </h1>
   </header>
   <main>
-    <h1>Chinese</h1>
-    <h2>Restaurants:</h2> 
-    <dl>
-      <dt> <a href="../restaurants/dunhuang.html">Dun Huang</a></dt>
-      <dd> Serves: <a href="../food/noodles.html">Beef Noodle Soup</a> </dd>
-    </dl>
+    <div id="topbar">
+      <h1>Restaurants:</h1>
+      <label class="switch" onchange="
+      event.stopPropagation();
+      relayEvent(
+        event,
+        'light-mode',
+        {checked: event.target.checked})">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <ul class="restaurants">
+      <li> <a href="../restaurants/dunhuang.html">Dun Huang</a></li>
+    </ul>
   </main>
 </body>
+<script>
+  function relayEvent(originalEvent, newEventName, detail = {}) {
+    originalEvent.stopPropagation();
+
+    const customEvent = new CustomEvent(newEventName, {
+      bubbles: true,
+      detail: detail
+    });
+
+    originalEvent.target.dispatchEvent(customEvent);
+  }
+
+  document.body.addEventListener("light-mode", (event) => {
+    const checked = event.detail.checked;
+    document.body.classList.toggle("light-mode", checked);
+  });
+</script>
 </html>

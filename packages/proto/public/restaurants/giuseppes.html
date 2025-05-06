@@ -1,17 +1,79 @@
 <!DOCTYPE html>
-<html>
-<head><title>Giuseppes</title></head>
-<body>
-  <h1>Giuseppes</h1>
-  <h2>Cuisine: <a href="../cuisines/italian.html">Italian</a> </h2>
-  <h2>Serves:</h2>
-  <dl>
-    <dd> <a href="../food/pasta.html">Pasta</a></dd>
-</dl>
-<h2>Described in Review:</h2> 
-  <dl>
-    <dd><a href="../reviews/review2.html">Review by Alice</a></dd>
-  </dl>  
-<a href="../index.html">Back to Home</a>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="/styles/reset.css" />
+  <link rel="stylesheet" href="/styles/page.css" />
+  <link rel="stylesheet" href="/styles/restaurants.css" />
+  <link rel="stylesheet" href="/styles/tokens.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Tienne:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="page">
+  <header>
+    <h1 id="Logo">
+      <a href="../index.html">
+        <span>
+            <svg class="icon">
+              <use href="/icons/header.svg#icon-logo"></use>
+            </svg>
+            Food Finder
+        </span>
+      </a>
+      Italian
+      <span>
+        <svg class="icon">
+          <use href="/icons/header.svg#icon-user"></use>
+        </svg>
+        Account
+      </span>
+    </h1>
+  </header>
+
+  <main>
+    <div id="topbar">
+      <h1>Giuseppes:</h1>
+      <label class="switch" onchange="
+      event.stopPropagation();
+      relayEvent(
+        event,
+        'light-mode',
+        {checked: event.target.checked})">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <h2>Cuisine: <a href="../cuisines/italian.html">Italian</a></h2>
+
+    <h2>Serves:</h2>
+    <dl>
+      <dd><a href="../food/pasta.html">Spaghetti Pomodoro</a></dd>
+    </dl>
+
+    <h2>Described in Review:</h2>
+    <ul>
+      <a href="../reviews/review2.html"><li>Review #1</li></a>
+    </ul>
+  </main>
+
+  <script>
+    function relayEvent(originalEvent, newEventName, detail = {}) {
+      originalEvent.stopPropagation();
+
+      const customEvent = new CustomEvent(newEventName, {
+        bubbles: true,
+        detail: detail
+      });
+
+      originalEvent.target.dispatchEvent(customEvent);
+    }
+
+    document.body.addEventListener("light-mode", (event) => {
+      const checked = event.detail.checked;
+      document.body.classList.toggle("light-mode", checked);
+    });
+  </script>
 </body>
 </html>

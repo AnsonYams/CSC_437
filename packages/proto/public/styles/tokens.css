@@ -1,9 +1,9 @@
 :root {
     --color-accent: #325C81;
     --color-background-header: var(--color-accent);
-    --color-background-page: #0851A6;
-    --color-background-card: #689BC4;
-    --color-background-header-text: #EBC7F9;
+    --color-background-page: #064184;
+    --color-background-card: #A0BFD9;
+    --color-background-header-text: #40155B;
     --color-text: white;
     --color-link: #B1ECC3;
 
@@ -30,4 +30,13 @@
     --icon-size-big: 10rem;
     --icon-size-medium: 5rem;
     --icon-size-small: 2rem;
+  }
+
+  body.light-mode {
+    --color-accent: white;
+    --color-background-header: #A2A9A9;
+    --color-background-page: var(--color-accent);
+    --color-background-card: #5FA2D8;
+    --color-text: black;
+    --color-link: #520a7c;
   }
