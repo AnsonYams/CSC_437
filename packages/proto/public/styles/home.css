@@ -24,7 +24,7 @@ svg.icon-flag {
   color: var(--color-link);
 }
 
-main {
+.cuisine-grid {
   display: grid;
   grid-template-columns: [start] 1fr 1fr 1fr [end];
   gap: var(--margin-big); 

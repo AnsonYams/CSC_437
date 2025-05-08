@@ -1,0 +1,32 @@
+[
+    {
+        "href" : "cuisines/fastfood.html", 
+        "cuisine" : "Fast Food",
+        "icon" : "/icons/cuisines.svg#icon-fastfood"
+    },
+    {
+        "href" : "cuisines/thai.html", 
+        "cuisine" : "Thai",
+        "icon" : "/icons/cuisines.svg#icon-thai"
+    },
+    {
+        "href" : "cuisines/italian.html", 
+        "cuisine" : "Italian",
+        "icon" : "/icons/cuisines.svg#icon-italian"
+    },
+    {
+        "href" : "cuisines/japanese.html", 
+        "cuisine" : "Japanese",
+        "icon" : "/icons/cuisines.svg#icon-japanese"
+    },
+    {
+        "href" : "cuisines/mexican.html", 
+        "cuisine" : "Mexican",
+        "icon" : "/icons/cuisines.svg#icon-mexican"
+    },
+    {
+        "href" : "cuisines/chinese.html", 
+        "cuisine" : "Chinese",
+        "icon" : "/icons/cuisines.svg#icon-chinese"
+    }
+]

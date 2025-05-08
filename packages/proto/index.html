@@ -15,10 +15,12 @@
   import { define } from "@calpoly/mustang";
   import { TitleBannerElement } from "/src/titlebanner.ts";
   import { CuisineElement } from "/src/cuisineItem.ts";
+  import { AllCuisinesElement } from "/src/allCuisines.ts";
 
   define({
     "title-banner": TitleBannerElement,
-    "cuisine-item": CuisineElement
+    "cuisine-item": CuisineElement,
+    "all-cuisines": AllCuisinesElement
   });
 </script>
 <body class="page">
@@ -37,44 +39,7 @@
       </label>
     </div>
   </header>
-  <main>
-    <cuisine-item
-      href="cuisines/fastfood.html" 
-      cuisine="Fast Food"
-      icon="/icons/cuisines.svg#icon-fastfood"
-    ></cuisine-item>
-
-    <cuisine-item
-      href="cuisines/thai.html" 
-      cuisine="Thai"
-      icon="/icons/cuisines.svg#icon-thai"
-    ></cuisine-item>
-
-    <cuisine-item
-      href="cuisines/italian.html" 
-      cuisine="Italian"
-      icon="/icons/cuisines.svg#icon-italian"
-    ></cuisine-item>
-
-    <cuisine-item
-      href="cuisines/japanese.html" 
-      cuisine="Japanese"
-      icon="/icons/cuisines.svg#icon-japanese"
-    ></cuisine-item>
-
-    <cuisine-item
-      href="cuisines/mexican.html" 
-      cuisine="Mexican"
-      icon="/icons/cuisines.svg#icon-mexican"
-    ></cuisine-item>
-    
-    <cuisine-item
-      href="cuisines/chinese.html" 
-      cuisine="Chinese"
-      icon="/icons/cuisines.svg#icon-chinese"
-    ></cuisine-item>
-
-  </main>
+  <all-cuisines src="/data/cuisines.json" class="cuisine-grid"></all-cuisines>
 </body>
 <script>
   function relayEvent(originalEvent, newEventName, detail = {}) {

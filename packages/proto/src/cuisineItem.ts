@@ -17,13 +17,11 @@ export class CuisineElement extends LitElement {
   override render() {
     return html`
     <a href=${this.href}>
-      <div>
           ${this.cuisine}   
         </br>     
           <svg>
             <use href=${this.icon}></use>
           </svg>
-      </div>
     </a>  
     `;
   }
@@ -31,7 +29,12 @@ export class CuisineElement extends LitElement {
   static styles = [
     reset.styles,
     css`
-  div{
+    :host {
+      display: block;
+      box-sizing: border-box;
+    }
+
+  a{
     width: 80%;          
     height: 100%;
     color: var(--color-text);
@@ -46,6 +49,7 @@ export class CuisineElement extends LitElement {
     padding: var(--padding-small);
     margin: var(--margin-medium);
     box-sizing: border-box;}
+
   svg{
     display: inline;
     height: var(--icon-size-big);
