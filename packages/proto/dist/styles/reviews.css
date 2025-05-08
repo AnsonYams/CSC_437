@@ -1,0 +1,27 @@
+.review {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: var(--padding-med);
+    border: 1px solid black;
+    border-radius: 1rem;    
+    max-width: 600px;
+    margin: var(--margin-big) auto;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05);
+  }
+
+  .review-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .review-row strong {
+    min-width: 120px;
+    display: inline-block;
+  }
+
+  .review-comment {
+    font-style: italic;
+  }

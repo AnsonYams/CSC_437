@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="/styles/reset.css" />
+  <link rel="stylesheet" href="/styles/page.css" />
+  <link rel="stylesheet" href="/styles/tokens.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Tienne:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="page">
+  <header>
+    <h1 id="Logo">
+      <a href="../index.html">
+        <span>
+            <svg class="icon">
+              <use href="/icons/header.svg#icon-logo"></use>
+            </svg>
+            Food Finder
+        </span>
+      </a>
+      Thai
+      <span>
+        <svg class="icon">
+          <use href="/icons/header.svg#icon-user"></use>
+        </svg>
+        Account
+      </span>
+    </h1>
+  </header>
+  <main>
+    <div id="topbar">
+      <h1>Pad Thai:</h1>
+      <label class="switch" onchange="
+      event.stopPropagation();
+      relayEvent(
+        event,
+        'light-mode',
+        {checked: event.target.checked})">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <h2>Belongs to Cuisine:</h2>
+    <a href="../cuisines/thai.html">Thai</a>
+
+    <h3>Served at:</h3>
+    <a href="../restaurants/papasthai.html">Papa's Thai Cafe</a>
+
+    <h3>Ingredients:</h3>
+    <ul>
+      <li>Rice Noodles</li>
+      <li>Peanuts</li>
+      <li>Bean Sprouts</li>
+      <li>Eggs</li>
+      <li>Green Onions</li>
+      <li>Shrimp</li>
+    </ul>
+
+    <h3>Nutritional Info</h3>
+    <ul>
+      <li>Calories: 250</li>
+      <li>Fat: 12g</li>
+      <li>Carbohydrates: 30g</li>
+      <li>Protein: 15g</li>
+    </ul>
+  </main>
+
+  <script>
+    function relayEvent(originalEvent, newEventName, detail = {}) {
+      originalEvent.stopPropagation();
+
+      const customEvent = new CustomEvent(newEventName, {
+        bubbles: true,
+        detail: detail
+      });
+
+      originalEvent.target.dispatchEvent(customEvent);
+    }
+
+    document.body.addEventListener("light-mode", (event) => {
+      const checked = event.detail.checked;
+      document.body.classList.toggle("light-mode", checked);
+    });
+  </script>
+</body>
+</html>
