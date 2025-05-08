@@ -1,0 +1,24 @@
+
+> proto@1.0.0 start
+> http-server dist -p 3000
+
+sh: 1: http-server: Permission denied
+npm error Lifecycle script `start` failed with error:
+npm error code 127
+npm error path /home/ayamvini/CSC_437/packages/proto
+npm error workspace proto@1.0.0
+npm error location /home/ayamvini/CSC_437/packages/proto
+npm error command failed
+npm error command sh -c http-server dist -p 3000
+
+> proto@1.0.0 start
+> http-server dist -p 3000
+
+sh: 1: http-server: Permission denied
+npm error Lifecycle script `start` failed with error:
+npm error code 127
+npm error path /home/ayamvini/CSC_437/packages/proto
+npm error workspace proto@1.0.0
+npm error location /home/ayamvini/CSC_437/packages/proto
+npm error command failed
+npm error command sh -c http-server dist -p 3000

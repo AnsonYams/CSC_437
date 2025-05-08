@@ -7,14 +7,14 @@ export class TitleBannerElement extends LitElement {
         <h1>
             <span>
                 <svg>
-                    <use href="../public/icons/header.svg#icon-logo"></use>
+                    <use href="/icons/header.svg#icon-logo"></use>
                 </svg>
             Food Finder
             </span>
             <slot name="title">Home</slot>
             <span>
                 <svg >
-                    <use href="../public/icons/header.svg#icon-user"></use>
+                    <use href="/icons/header.svg#icon-user"></use>
                 </svg>
                 Account
             </span>
