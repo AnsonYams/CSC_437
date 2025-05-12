@@ -1,0 +1,34 @@
+.cuisine {
+    width: 80%;          
+    height: 100%;
+    color: var(--color-text);
+    text-decoration: none;
+    border: var(--color-text) 1px solid;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-header);
+    padding: var(--padding-small);
+    margin: var(--margin-medium);
+    box-sizing: border-box;
+}
+
+svg.icon-flag {
+  display: inline;
+  height: var(--icon-size-big);
+  width: var(--icon-size-big);
+  vertical-align: middle;
+  fill: var(--color-link);
+  color: var(--color-link);
+}
+
+.cuisine-grid {
+  display: grid;
+  grid-template-columns: [start] 1fr 1fr 1fr [end];
+  gap: var(--margin-big); 
+  justify-items: stretch; 
+  margin: var(--margin-big);
+  width: 100%;
+}
