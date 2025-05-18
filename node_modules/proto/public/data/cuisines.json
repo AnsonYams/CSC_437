@@ -1,6 +1,6 @@
 [
     {
-        "href" : "cuisines/fastfood.html", 
+        "href" : "cuisines/fast_food.html", 
         "cuisine" : "Fast Food",
         "icon" : "/icons/cuisines.svg#icon-fastfood"
     },
