@@ -13,7 +13,6 @@ export class CuisineElement extends LitElement {
     @property({ attribute: "icon" })
     icon?: string;
 
-
   override render() {
     return html`
     <a href=${this.href}>

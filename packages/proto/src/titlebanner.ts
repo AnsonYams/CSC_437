@@ -1,22 +1,79 @@
 import { html, css, LitElement } from "lit";
 import reset from "./styles/reset.css.ts";
+import { Auth, Events, Observer } from "@calpoly/mustang";
+import { state } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 
 export class TitleBannerElement extends LitElement {
+  _authObserver = new Observer<Auth.Model>(this, "user:auth");
+  @state()
+  loggedIn = false;
+
+  @state()
+  userid?: string;
+
+  @property({ type: String })
+  title: string = "Home";
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    this._authObserver.observe((auth: Auth.Model) => {
+      const { user } = auth;
+      console.log("user", user);
+      if (user && user.authenticated ) {
+        this.loggedIn = true;
+        this.userid = user.username;
+      } else {
+        this.loggedIn = false;
+        this.userid = undefined;
+      }
+    });
+  }
+  
+  renderSignOutButton() {
+  return html`
+    <button
+      @click=${(e: UIEvent) => {
+        Events.relay(e, "auth:message", ["auth/signout"])
+      }}
+    >
+      Sign Out
+    </button>
+  `;
+}
+
+renderSignInButton() {
+  return html`
+    <a href="/login.html">
+    <button>
+      Sign In…
+    </button>
+    </a>
+  `;
+}
+  
   override render() {
     return html`
         <h1>
-            <span>
+        <a href="/index.html">
                 <svg>
                     <use href="/icons/header.svg#icon-logo"></use>
                 </svg>
             Food Finder
-            </span>
-            <slot name="title">Home</slot>
+        </a>
+            <span>${this.title}</span>
             <span>
                 <svg >
                     <use href="/icons/header.svg#icon-user"></use>
                 </svg>
-                Account
+                <a slot="actuator">
+                  ${this.userid || " "}
+                    ${this.loggedIn ?
+                    this.renderSignOutButton() :
+                    this.renderSignInButton()
+                  }
+                </a>
             </span>
         </h1>
     `;

@@ -10,11 +10,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Tienne:wght@400;700;900&display=swap" rel="stylesheet">
   <title>Food Finder</title>
-  <script type="module" crossorigin src="/assets/index-Ca_4h6bB.js"></script>
-</head>
+  <script type="module" crossorigin src="/assets/main-DYaX1VCn.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/titlebanner-BXuQaerr.js">
+</head>
 <body class="page">
   <header>
-    <title-banner></title-banner>
+    <mu-auth provides="user:auth">
+      <title-banner></title-banner>
     <div id="topbar">
       <h1>Select a Cuisine:</h1>
       <label class="switch" onchange="
@@ -28,44 +30,8 @@
       </label>
     </div>
   </header>
-  <main>
-    <cuisine-item
-      href="cuisines/fastfood.html" 
-      cuisine="Fast Food"
-      icon="/icons/cuisines.svg#icon-fastfood"
-    ></cuisine-item>
-
-    <cuisine-item
-      href="cuisines/thai.html" 
-      cuisine="Thai"
-      icon="/icons/cuisines.svg#icon-thai"
-    ></cuisine-item>
-
-    <cuisine-item
-      href="cuisines/italian.html" 
-      cuisine="Italian"
-      icon="/icons/cuisines.svg#icon-italian"
-    ></cuisine-item>
-
-    <cuisine-item
-      href="cuisines/japanese.html" 
-      cuisine="Japanese"
-      icon="/icons/cuisines.svg#icon-japanese"
-    ></cuisine-item>
-
-    <cuisine-item
-      href="cuisines/mexican.html" 
-      cuisine="Mexican"
-      icon="/icons/cuisines.svg#icon-mexican"
-    ></cuisine-item>
-    
-    <cuisine-item
-      href="cuisines/chinese.html" 
-      cuisine="Chinese"
-      icon="/icons/cuisines.svg#icon-chinese"
-    ></cuisine-item>
-
-  </main>
+  <all-cuisines src="/data/cuisines.json" class="cuisine-grid"></all-cuisines>
+</mu-auth>
 </body>
 <script>
   function relayEvent(originalEvent, newEventName, detail = {}) {

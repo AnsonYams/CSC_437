@@ -15,6 +15,10 @@ const styles = css`
     list-style: none;
     padding: 0;
   }
+ a[href]{
+  color: currentColor;
+  text-decoration: none;
+}   
 `;
 
 export default { styles };

@@ -12,7 +12,7 @@
   <title>Food Finder</title>
 </head>
 <script type="module">
-  import { define } from "@calpoly/mustang";
+  import { define, Auth  } from "@calpoly/mustang";
   import { TitleBannerElement } from "/src/titlebanner.ts";
   import { CuisineElement } from "/src/cuisineItem.ts";
   import { AllCuisinesElement } from "/src/allCuisines.ts";
@@ -20,12 +20,14 @@
   define({
     "title-banner": TitleBannerElement,
     "cuisine-item": CuisineElement,
-    "all-cuisines": AllCuisinesElement
+    "all-cuisines": AllCuisinesElement,
+    "mu-auth": Auth.Provider
   });
 </script>
 <body class="page">
   <header>
-    <title-banner></title-banner>
+    <mu-auth provides="user:auth">
+      <title-banner></title-banner>
     <div id="topbar">
       <h1>Select a Cuisine:</h1>
       <label class="switch" onchange="
@@ -40,6 +42,7 @@
     </div>
   </header>
   <all-cuisines src="/data/cuisines.json" class="cuisine-grid"></all-cuisines>
+</mu-auth>
 </body>
 <script>
   function relayEvent(originalEvent, newEventName, detail = {}) {
