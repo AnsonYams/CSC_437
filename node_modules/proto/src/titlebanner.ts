@@ -5,7 +5,7 @@ import { state } from "lit/decorators.js";
 import { property } from "lit/decorators.js";
 
 export class TitleBannerElement extends LitElement {
-  _authObserver = new Observer<Auth.Model>(this, "user:auth");
+  _authObserver = new Observer<Auth.Model>(this, "food:auth");
   @state()
   loggedIn = false;
 

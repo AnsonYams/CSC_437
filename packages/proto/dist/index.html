@@ -10,45 +10,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Tienne:wght@400;700;900&display=swap" rel="stylesheet">
   <title>Food Finder</title>
-  <script type="module" crossorigin src="/assets/main-DYaX1VCn.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/titlebanner-BXuQaerr.js">
+  <script type="module" crossorigin src="/assets/main-gM3UedCo.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/titlebanner-DDz-pKqn.js">
 </head>
 <body class="page">
-  <header>
-    <mu-auth provides="user:auth">
-      <title-banner></title-banner>
-    <div id="topbar">
-      <h1>Select a Cuisine:</h1>
-      <label class="switch" onchange="
-      event.stopPropagation();
-      relayEvent(
-        event,
-        'light-mode',
-        {checked: event.target.checked})">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
-    </div>
-  </header>
-  <all-cuisines src="/data/cuisines.json" class="cuisine-grid"></all-cuisines>
+<mu-auth provides="food:auth">
+  <title-banner></title-banner>
+  <sub-banner subheader="Select a Cuisine: "></sub-banner>
+  <all-cuisines src="/api/cuisines" class="cuisine-grid"></all-cuisines>
 </mu-auth>
+
 </body>
-<script>
-  function relayEvent(originalEvent, newEventName, detail = {}) {
-    originalEvent.stopPropagation();
-
-    const customEvent = new CustomEvent(newEventName, {
-      bubbles: true,
-      detail: detail
-    });
-
-    originalEvent.target.dispatchEvent(customEvent);
-  }
-
-  document.body.addEventListener("light-mode", (event) => {
-    const checked = event.detail.checked;
-    document.body.classList.toggle("light-mode", checked);
-  });
-</script>
-
 </html>

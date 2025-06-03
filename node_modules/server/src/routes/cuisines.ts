@@ -12,8 +12,8 @@ router.get("/", (_, res: Response) => {
 });
 
 router.get("/:cuisine", (req: Request, res: Response) => {
-  const { c } = req.params;
-  Cuisines.get(c)
+  const { cuisine } = req.params;
+  Cuisines.get(cuisine)
     .then((cuisine: Cuisine) => res.json(cuisine))
     .catch((err) => res.status(404).send(err));
 });

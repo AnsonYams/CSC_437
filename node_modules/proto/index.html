@@ -16,50 +16,22 @@
   import { TitleBannerElement } from "/src/titlebanner.ts";
   import { CuisineElement } from "/src/cuisineItem.ts";
   import { AllCuisinesElement } from "/src/allCuisines.ts";
-
+  import { SubBanner} from "/src/subBanner.ts";
   define({
     "title-banner": TitleBannerElement,
     "cuisine-item": CuisineElement,
     "all-cuisines": AllCuisinesElement,
+    "sub-banner": SubBanner,
     "mu-auth": Auth.Provider
   });
+  SubBanner.initializeOnce();
 </script>
 <body class="page">
-  <header>
-    <mu-auth provides="user:auth">
-      <title-banner></title-banner>
-    <div id="topbar">
-      <h1>Select a Cuisine:</h1>
-      <label class="switch" onchange="
-      event.stopPropagation();
-      relayEvent(
-        event,
-        'light-mode',
-        {checked: event.target.checked})">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
-    </div>
-  </header>
-  <all-cuisines src="/data/cuisines.json" class="cuisine-grid"></all-cuisines>
+<mu-auth provides="food:auth">
+  <title-banner></title-banner>
+  <sub-banner subheader="Select a Cuisine: "></sub-banner>
+  <all-cuisines src="/api/cuisines" class="cuisine-grid"></all-cuisines>
 </mu-auth>
+
 </body>
-<script>
-  function relayEvent(originalEvent, newEventName, detail = {}) {
-    originalEvent.stopPropagation();
-
-    const customEvent = new CustomEvent(newEventName, {
-      bubbles: true,
-      detail: detail
-    });
-
-    originalEvent.target.dispatchEvent(customEvent);
-  }
-
-  document.body.addEventListener("light-mode", (event) => {
-    const checked = event.detail.checked;
-    document.body.classList.toggle("light-mode", checked);
-  });
-</script>
-
 </html>

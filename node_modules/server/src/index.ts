@@ -1,8 +1,11 @@
 import express, { Request, Response } from "express";
 import { connect } from "./services/mongo";
-import Cuisines from "./services/cuisine-svc";
 import cuisines from "./routes/cuisines";
+import restaurantRoutes from "./routes/restaurants";
+import foodRoutes from "./routes/foods";
 import auth, {authenticateUser } from "./routes/auth";
+import fs from "node:fs/promises";
+import path from "path";
 
 connect("FoodFinder");
 const app = express();
@@ -11,21 +14,19 @@ const staticDir = process.env.STATIC || "public";
 
 app.use(express.json()); //middleware
 app.use("/auth", auth);
+app.use("/api/restaurants", restaurantRoutes);
+app.use("/api/foods", foodRoutes);
 app.use("/api/cuisines", authenticateUser, cuisines);
 app.use(express.static(staticDir));
 
-app.get("/cuisines/:cuisine", (req: Request, res: Response) => {
-  const { cuisine } = req.params;
-  console.log("Received request for cuisine:", req.params.cuisine);
-  Cuisines.get(cuisine).then((data) => {
-    if (data){
-      res
-      .set("Content-Type", "application/json")
-      .send(JSON.stringify(data));
-    }
-    else res
-      .status(404).send();
-  });
+app.get("/api/cuisines", cuisines);
+app.get("/api/restaurants", restaurantRoutes);
+
+app.use("/app", (req: Request, res: Response) => {
+  const indexHtml = path.resolve(staticDir, "index.html");
+  fs.readFile(indexHtml, { encoding: "utf8" }).then((html) =>
+    res.send(html)
+  );
 });
 
 app.listen(port, () => {
