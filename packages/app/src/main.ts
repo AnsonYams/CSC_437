@@ -1,13 +1,18 @@
-import { define, Auth, Switch, History  } from "@calpoly/mustang";
+import { define, Auth, Switch, History, Store  } from "@calpoly/mustang";
 import { TitleBannerElement } from "./components/titlebanner.ts";
 import { CuisineElement } from "./components/cuisineItem.ts";
 import { AllCuisinesElement } from "./components/allCuisines.ts";
 import { SubBanner} from "./components/subBanner.ts";
 import { html } from "lit";
+import { Msg } from "./messages";
+import { Model, init } from "./model";
+import update from "./update.ts";
 import { HomeViewElement } from "./views/home-view.ts";
 import { LoginFormElement } from "./auth/login-form.ts";
 import { CuisineViewElement } from "./views/cuisine-view.ts";
 import { AllRestaurantsElement } from "./components/restaurantListing.ts";
+import { RestaurantViewElement } from "./views/restaurant-view.ts";
+import { FoodViewElement } from "./views/food-view.ts";
 const routes = [
   {
     path: "/app/cuisine/:id",
@@ -22,6 +27,16 @@ const routes = [
     `
   },
   {
+    path: "/app/restaurant/:id",
+    view: (params: Switch.Params) => html`
+      <restaurant-view name=${params.id}></restaurant-view>`
+  },
+  {
+    path: "/app/restaurant/:restaurant/food/:food",
+    view: (params: Switch.Params) => html`
+      <food-view name=${params.food} restaurant=${params.restaurant}></food-view>`
+  },
+  {
     path: "/",
     redirect: "/app"
   }
@@ -32,12 +47,21 @@ define({
     "cuisine-item": CuisineElement,
     "all-cuisines": AllCuisinesElement,
     "sub-banner": SubBanner,
-    "mu-auth": Auth.Provider,
-    "mu-history": History.Provider,
     "home-view": HomeViewElement,
     "login-form": LoginFormElement,
     "cuisine-view": CuisineViewElement,
     "all-restaurants": AllRestaurantsElement, 
+    "restaurant-view": RestaurantViewElement,
+    "food-view": FoodViewElement,
+    "mu-auth": Auth.Provider,
+    "mu-history": History.Provider,
+    "mu-store": class AppStore
+      extends Store.Provider<Model, Msg>
+      {
+        constructor() {
+          super(update, init, "food:auth");
+        }
+      },
     "mu-switch": class AppSwitch extends Switch.Element {
     constructor() {
         super(routes, "food:history", "food:auth");

@@ -21,6 +21,7 @@ app.use(express.static(staticDir));
 
 app.get("/api/cuisines", cuisines);
 app.get("/api/restaurants", restaurantRoutes);
+app.get("/api/foods", foodRoutes);
 
 app.use("/app", (req: Request, res: Response) => {
   const indexHtml = path.resolve(staticDir, "index.html");

@@ -1,117 +1,74 @@
 [
   {
-    "name": "Burger King",
+    "name": "Popeyes",
     "cuisine": "Fast Food",
-    "foods": ["Whopper", "Chicken Fries", "French Fries", "Soft Drink"]
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Popeyes_Louisiana_Kitchen_%2851195358373%29.jpg/1024px-Popeyes_Louisiana_Kitchen_%2851195358373%29.jpg",
+    "location": "840 E Foothill Blvd San Luis Obispo, CA 93405",
+    "description": "Famous for its Louisiana-style fried chicken and southern sides.",
+    "foods": ["Fried Chicken", "Biscuits", "Mashed Potatoes", "Cajun Fries"]
   },
   {
-    "name": "Taco Bell",
+    "name": "McDonald's",
     "cuisine": "Fast Food",
-    "foods": ["Tacos", "Burritos", "Quesadillas", "Nachos"]
-  },
-  {
-    "name": "Chick-fil-A",
-    "cuisine": "Fast Food",
-    "foods": ["Chicken Sandwich", "Waffle Fries", "Chicken Nuggets", "Milkshake"]
+    "image": "https://www.investopedia.com/thmb/poMTdEFWoCKOhLvlQLAR2f2MkkI=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/shutterstock_523483492-mcdonalds-5988b1ffc412440010f2d0b9.jpg",
+    "location": "275 Madonna Rd San Luis Obispo, CA 93401",
+    "description": "Global chain known for burgers, fries, and quick service.",
+    "foods": ["Big Mac", "McNuggets", "French Fries", "Apple Pie"]
   },
   {
     "name": "Subway",
     "cuisine": "Fast Food",
-    "foods": ["Sub Sandwiches", "Salads", "Cookies", "Chips"]
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Subway_in_Burwood_Plaza.jpg/1024px-Subway_in_Burwood_Plaza.jpg",
+    "location": "University,Poly Canyon Village Bldg. 171-B Buena Vista, B002 San Luis Obispo, CA 93410",
+    "description": "Build-your-own subs with fresh ingredients and healthy options.",
+    "foods": ["Turkey Sub", "Veggie Delight", "Cookies", "Chips"]
   },
   {
-    "name": "Wendy's",
-    "cuisine": "Fast Food",
-    "foods": ["Baconator", "Chicken Sandwich", "Frosty", "French Fries"]
-  },
-  {
-    "name": "Panda Express",
-    "cuisine": "Fast Food",
-    "foods": ["Orange Chicken", "Chow Mein", "Fried Rice", "Spring Rolls"]
-  },
-  {
-    "name": "KFC",
-    "cuisine": "Fast Food",
-    "foods": ["Fried Chicken", "Mashed Potatoes", "Biscuits", "Cole Slaw"]
-  },
-  {
-    "name": "Five Guys",
-    "cuisine": "Fast Food",
-    "foods": ["Cheeseburger", "Hot Dog", "Cajun Fries", "Milkshake"]
-  },
-  {
-    "name": "Golden Dragon",
-    "cuisine": "Chinese",
-    "foods": ["Sweet and Sour Pork", "Kung Pao Chicken", "Spring Rolls", "Fried Rice"]
-  },
-  {
-    "name": "Peking Garden",
-    "cuisine": "Chinese",
-    "foods": ["Peking Duck", "Lo Mein", "Egg Drop Soup", "Crab Rangoon"]
-  },
-  {
-    "name": "Wok Express",
-    "cuisine": "Chinese",
-    "foods": ["General Tso's Chicken", "Beef and Broccoli", "Dumplings", "Hot and Sour Soup"]
-  },
-  {
-    "name": "Mamma Mia's",
-    "cuisine": "Italian",
-    "foods": ["Spaghetti Bolognese", "Margherita Pizza", "Garlic Bread", "Tiramisu"]
-  },
-  {
-    "name": "Trattoria Roma",
-    "cuisine": "Italian",
-    "foods": ["Lasagna", "Fettuccine Alfredo", "Caprese Salad", "Cannoli"]
-  },
-  {
-    "name": "Pasta Fresca",
-    "cuisine": "Italian",
-    "foods": ["Penne Arrabiata", "Meatballs", "Bruschetta", "Gelato"]
-  },
-  {
-    "name": "Sakura Sushi",
-    "cuisine": "Japanese",
-    "foods": ["California Roll", "Miso Soup", "Tempura", "Sashimi"]
-  },
-  {
-    "name": "Tokyo Diner",
-    "cuisine": "Japanese",
-    "foods": ["Ramen", "Gyoza", "Chicken Katsu", "Edamame"]
-  },
-  {
-    "name": "Izakaya Zen",
-    "cuisine": "Japanese",
-    "foods": ["Tonkotsu Ramen", "Nigiri", "Takoyaki", "Green Tea Ice Cream"]
-  },
-  {
-    "name": "El Pueblo",
-    "cuisine": "Mexican",
-    "foods": ["Tacos al Pastor", "Guacamole", "Churros", "Enchiladas"]
-  },
-  {
-    "name": "Casa de Sabor",
-    "cuisine": "Mexican",
-    "foods": ["Burritos", "Quesadillas", "Mexican Rice", "Tamales"]
-  },
-  {
-    "name": "La Taquería",
-    "cuisine": "Mexican",
-    "foods": ["Carnitas", "Nachos", "Sopes", "Horchata"]
-  },
-  {
-    "name": "Bangkok Bites",
+    "name": "Papa's Thai Cafe",
     "cuisine": "Thai",
+    "image": "https://s3-media0.fl.yelpcdn.com/bphoto/JeNDLubTSW8aNECjBBZ58A/o.jpg",
+    "location": "1308 Monterey St San Luis Obispo, CA 93401",
+    "description": "Cozy Thai eatery serving classic dishes in a relaxed setting.",
     "foods": ["Pad Thai", "Green Curry", "Thai Iced Tea", "Spring Rolls"]
   },
   {
-    "name": "Siam Delight",
+    "name": "Thai Easy Bowl",
     "cuisine": "Thai",
-    "foods": ["Massaman Curry", "Tom Yum Soup", "Sticky Rice with Mango", "Satay"]
+    "image": "https://s3-media0.fl.yelpcdn.com/bphoto/7e2XaICdkX8T7yC5i2z9Mw/o.jpg",
+    "location": "13 Santa Rosa St San Luis Obispo, CA 93405",
+    "description": "Quick-serve Thai food with fresh, bold flavors.",
+    "foods": ["Tom Yum Soup", "Red Curry", "Sticky Rice", "Satay"]
   },
   {
-    "name": "Lotus Thai",
+    "name": "Thai Delight",
     "cuisine": "Thai",
-    "foods": ["Red Curry", "Pad See Ew", "Larb", "Coconut Soup"]
+    "image": "https://s3-media0.fl.yelpcdn.com/bphoto/T2RuG-RSlI2A5u2i6o9oYQ/o.jpg",
+    "location": "1011 Higuera St San Luis Obispo, CA 93401",
+    "description": "Authentic Thai meals made with love and local ingredients.",
+    "foods": ["Pad See Ew", "Massaman Curry", "Larb", "Coconut Soup"]
+  },
+  {
+    "name": "Giuseppe's",
+    "cuisine": "Italian",
+    "image": "https://s3-media0.fl.yelpcdn.com/bphoto/5KzO03XRRknY-aypjF1h9w/o.jpg",
+    "location": "849 Monterey St San Luis Obispo, CA 93401",
+    "description": "Family-owned Italian restaurant serving hearty classics.",
+    "foods": ["Lasagna", "Garlic Bread", "Minestrone", "Cannoli"]
+  },
+  {
+    "name": "Mama's Meatballs",
+    "cuisine": "Italian",
+    "image": "https://s3-media0.fl.yelpcdn.com/bphoto/Bwt60y8XYjfCclrhsDaAog/o.jpg",
+    "location": "570 Higuera St Ste 130 San Luis Obispo, CA 93401",
+    "description": "Traditional Italian comfort food in a cozy setting.",
+    "foods": ["Spaghetti", "Meatballs", "Caprese Salad", "Tiramisu"]
+  },
+  {
+    "name": "Cafe Roma",
+    "cuisine": "Italian",
+    "image": "https://s3-media0.fl.yelpcdn.com/bphoto/1UNxjo5LWJsZURF9vj81Sw/o.jpg",
+    "location": "1020 Railroad Ave San Luis Obispo, CA 93401",
+    "description": "Upscale Italian cafe known for pasta and fine wines.",
+    "foods": ["Fettuccine Alfredo", "Bruschetta", "Pizza Margherita", "Gelato"]
   }
 ]

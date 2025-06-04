@@ -15,7 +15,7 @@ export class CuisineViewElement extends LitElement {
 
     return html`
       <title-banner title=${this.cuisine}></title-banner>
-      <sub-banner subheader="Restaurants for ${this.cuisine} Cuisine:"></sub-banner>
+      <sub-banner subheader="← Back" src="/app"></sub-banner>
       <all-restaurants src=${src}></all-restaurants>
     `;
   }
@@ -23,7 +23,6 @@ export class CuisineViewElement extends LitElement {
   static styles = css`
     :host {
       display: block;
-      padding: var(--margin-big);
     }
   `;
 }

@@ -16,7 +16,9 @@
 <body class="page">
   <mu-history provides="food:history">
     <mu-auth provides="food:auth"  redirect="/login.html">
-      <mu-switch></mu-switch>
+      <mu-store provides="food:model">
+        <mu-switch></mu-switch>
+      </mu-store>
     </mu-auth>
   </mu-history>
 </body>

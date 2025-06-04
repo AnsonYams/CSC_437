@@ -15,8 +15,24 @@ export class SubBanner extends LitElement {
     @property({ attribute: "subheader" })
     subheader?: string;
 
+    @property()
+    src?: string;
+    
+
 render() {
-  return html`
+  if (this.src != undefined && this.src != null) {
+    return html`
+    <div id="topbar">
+      <h1><a href=${this.src}>${this.subheader}</a></h1>
+      <label class="switch">
+        <input type="checkbox" @change=${toggleLightMode}>
+        <span class="slider round"></span>
+      </label>
+    </div>
+  `
+  }
+  else{
+    return html`
     <div id="topbar">
       <h1>${this.subheader}</h1>
       <label class="switch">
@@ -25,6 +41,7 @@ render() {
       </label>
     </div>
   `;
+  }
 }
 
   static styles = [
@@ -38,8 +55,9 @@ render() {
             background-color: var(--color-background-card);
             color: var(--color-background-header-text);
             font-family: var(--font-family-text);
-            font-size: var(--font-size-subheader);
+            font-size: var(--font-size-small);
             font-weight: var(--font-weight-subheader); 
+            width:100%;
             }
 
         .switch {
@@ -126,7 +144,7 @@ render() {
             color: var(--color-text);
             }
         a[href]{
-            color: var(--color-link);
+            color: var(--color-background-header-text);
             text-decoration: none;
             }
   `];

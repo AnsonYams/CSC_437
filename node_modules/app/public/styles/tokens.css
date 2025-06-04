@@ -6,6 +6,8 @@
     --color-background-header-text: #40155B;
     --color-text: white;
     --color-link: #B1ECC3;
+    --color-card: rgb(10, 133, 133);
+    --color-restaurant-card: #6690a7;
 
     --padding-header: 2rem;
     --padding-med: 1rem;
@@ -39,4 +41,6 @@
     --color-background-card: #5FA2D8;
     --color-text: black;
     --color-link: #520a7c;
+    --color-card: white;
+    --color-restaurant-card:rgb(187, 182, 182);
   }

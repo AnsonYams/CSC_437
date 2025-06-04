@@ -94,6 +94,7 @@ renderSignInButton() {
     justify-content: space-between;
     padding-left: var(--padding-header);
     text-align: center;
+    width:100%;
     padding-right: var(--padding-header);}
   svg{
     display: inline;

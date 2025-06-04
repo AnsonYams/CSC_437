@@ -20,7 +20,8 @@ router.get("/", async (req: Request, res: Response) => {
 
 
 router.get("/:id", (req: Request, res: Response) => {
-  Restaurants.get(req.params.id)
+  const name = req.params.id;
+  Restaurants.get(name)
     .then((restaurant: Restaurant) => res.json(restaurant))
     .catch((err) => res.status(404).send(err));
 });

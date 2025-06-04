@@ -1,20 +1,14 @@
 import { css, html, LitElement } from "lit";
 import { property, state } from "lit/decorators.js";
 import { Auth, define, Observer } from "@calpoly/mustang";
-
-interface Food {
-  food_name: string;
-}
-
-interface Cuisine {
-  cuisine: string;
-  icon: string;
-}
-
+import reset from "../styles/reset.css.ts";
 interface Restaurant {
   name: string;
-  cuisine_id: Cuisine;
-  food_ids: Food[];
+  cuisine: string;
+  foods: string[];
+  image: string;
+  location: string;
+  description: string;
 }
 
 export class AllRestaurantsElement extends LitElement {
@@ -74,71 +68,85 @@ export class AllRestaurantsElement extends LitElement {
       <div class="restaurant-list">
         ${restaurants.map(
           (r) => html`
+          <a href=${`/app/restaurant/${r.name}`}>
             <section class="restaurant-card">
               <h3>${r.name}</h3>
+              <img src=${r.image}>
             </section>
+          </a>
           `
         )}
       </div>
     `;
   }
 
-  static styles = css`
-  :host {
-    display: block;
-    padding: 1rem;
-    font-family: system-ui, sans-serif;
-  }
+static styles = [ reset.styles,
+    css`
+:host {
+  display: block;
+  padding: var(--padding-med);
+  font-family: var(--font-family-text);
+  background-color: var(--color-background-page);
+  color: var(--color-text);
+}
 
-  .restaurant-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
+.restaurant-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--margin-big);
+}
 
-  .restaurant-card {
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 1rem;
-    background: #fff;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-  }
+.restaurant-card {
+  border: 1px solid var(--color-background-header-text); /* or --color-text if you want higher contrast */
+  border-radius: var(--margin-medium);
+  padding: var(--padding-med);
+  background: var(--color-card);
+  color: var(--color-text);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
 
-  .restaurant-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
+.restaurant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
 
-  .restaurant-card h3 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.2rem;
-    color: #333;
-  }
+.restaurant-card img {
+  width: 100%;
+  height: 300px;
+  display: block;
+  border-radius: var(--margin-small);
+  object-fit: cover;
+  vertical-align: middle;
+}
 
-  .restaurant-card p {
-    margin: 0 0 0.75rem 0;
-    font-size: 0.9rem;
-    color: #666;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
+.restaurant-card h3 {
+  margin: 0 0 var(--margin-small) 0;
+  font-size: var(--font-size-text);
+  font-weight: var(--font-weight-subheader);
+  color: var(--color-text);
+}
 
-  .restaurant-card img {
-    vertical-align: middle;
-  }
+.restaurant-card p {
+  margin: 0 0 var(--margin-small) 0;
+  font-size: var(--font-size-small);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: var(--padding-small);
+}
 
-  .restaurant-card ul {
-    list-style: none;
-    padding-left: 1rem;
-    margin: 0;
-    color: #444;
-  }
+.restaurant-card ul {
+  list-style: none;
+  padding-left: var(--padding-med);
+  margin: 0;
+  color: var(--color-text);
+}
 
-  .restaurant-card li::before {
-    content: "🍽️ ";
-    margin-right: 0.25rem;
-  }
-`;
+.restaurant-card li::before {
+  content: "🍽️ ";
+  margin-right: var(--padding-small);
+}
+
+`];
 }

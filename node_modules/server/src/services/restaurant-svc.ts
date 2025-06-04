@@ -5,7 +5,10 @@ const restaurantSchema = new Schema<Restaurant>(
   {
     name: { type: String, required: true, trim: true },
     cuisine: { type: String, required: true },
-    foods: [{ type: String, required: true }]
+    foods: [{ type: String, required: true }],
+    image: { type: String, required: true, trim: true },
+    location: { type: String, required: true, trim: true },
+    description: { type: String, required: true, trim: true }
   },
   { collection: "Restaurants" }
 );
@@ -26,9 +29,9 @@ function byCuisine(cuisineName: string): Promise<Restaurant[]> {
 }
 
 
-function get(id: string): Promise<Restaurant> {
-  return RestaurantModel.findById(id).then((doc) => {
-    if (!doc) throw `Restaurant ${id} not found`;
+function get(name: string): Promise<Restaurant> {
+  return RestaurantModel.findOne({name}).then((doc) => {
+    if (!doc) throw `Restaurant ${name} not found`;
     return doc;
   });
 }
@@ -38,17 +41,17 @@ function create(data: Restaurant): Promise<Restaurant> {
   return RestaurantModel.create(data);
 }
 
-
-function update(id: string, data: Partial<Restaurant>): Promise<Restaurant> {
-  return RestaurantModel.findByIdAndUpdate(id, data, { new: true }).then((updated) => {
-    if (!updated) throw `Restaurant ${id} not updated`;
+function update(name: string, data: Partial<Restaurant>): Promise<Restaurant> {
+  return RestaurantModel.findOneAndUpdate({ name }, data, { new: true }).then((updated) => {
+    if (!updated) throw `Restaurant ${name} not updated`;
     return updated;
   });
 }
 
-function remove(id: string): Promise<void> {
-  return RestaurantModel.findByIdAndDelete(id).then((deleted) => {
-    if (!deleted) throw `Restaurant ${id} not deleted`;
+
+function remove(name: string): Promise<void> {
+  return RestaurantModel.findOneAndDelete({ name }).then((deleted) => {
+    if (!deleted) throw `Restaurant ${name} not deleted`;
   });
 }
 
