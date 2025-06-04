@@ -37,6 +37,9 @@ render() {
     <title-banner title="${f.food_name}"></title-banner>
     <sub-banner subheader="← Back" src="/app/restaurant/${this.restaurant}"></sub-banner>
     <section class="food-detail">
+    <a class="edit-btn" href="/app/restaurant/${this.restaurant}/food/${f.food_name}/edit">
+        ✏️ Edit
+        </a>
       <h2>${f.food_name}</h2>
       <img src="${f.pic}" alt="${f.food_name}" />
       <div class="section">
@@ -132,6 +135,23 @@ static styles =
     font-weight: var(--font-weight-subheader);
     color: var(--color-background-header-text);
   }
+.edit-btn {
+  display: inline-block;
+  margin-bottom: var(--margin-medium);
+  padding: var(--padding-small) var(--padding-med);
+  background-color: var(--color-link);
+  color: var(--color-background-page);
+  text-decoration: none;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-subheader);
+  border-radius: var(--margin-small);
+}
+
+.edit-btn:hover {
+  background-color: var(--color-background-header-text);
+  color: var(--color-text);
+}
+
 
 `];
 

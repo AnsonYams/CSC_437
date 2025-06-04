@@ -30,8 +30,23 @@ case "restaurant/load":
       apply(model => ({ ...model, food }))
     );
   break;
+  case "food/save":
+    saveFood(message[1], user)
+      .then((food) =>
+        apply((model) => ({ ...model, food }))
+      )
+      .then(() => {
+        const { onSuccess } = message[1];
+        if (onSuccess) onSuccess();
+      })
+      .catch((error: Error) => {
+        const { onFailure } = message[1];
+        if (onFailure) onFailure(error);
+      });
+    break;
     default:
-      throw new Error(`Unhandled Auth message "${message[0]}"`);
+      const unhandled: never = message[0]; // <-- never type
+      throw new Error(`Unhandled message "${unhandled}"`);
   }
 }
 
@@ -66,4 +81,32 @@ function loadFood(name: string, user: Auth.User): Promise<Food> {
       return res.json();
     })
     .then((json: unknown) => json as Food);
+}
+
+function saveFood(
+  msg: {
+    originalName: string;
+    food: Food;
+  },
+  user: Auth.User
+) {
+  return fetch(`/api/foods/${msg.originalName}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      ...Auth.headers(user)
+    },
+    body: JSON.stringify(msg.food)
+  })
+    .then((response: Response) => {
+      if (response.status === 200) return response.json();
+      else
+        throw new Error(
+          `Failed to save profile for ${msg.food.food_name}`
+        );
+    })
+    .then((json: unknown) => {
+      if (json) return json as Food;
+      return undefined;
+    });
 }

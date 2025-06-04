@@ -13,6 +13,7 @@ import { CuisineViewElement } from "./views/cuisine-view.ts";
 import { AllRestaurantsElement } from "./components/restaurantListing.ts";
 import { RestaurantViewElement } from "./views/restaurant-view.ts";
 import { FoodViewElement } from "./views/food-view.ts";
+import { FoodEditViewElement } from "./views/food-edit-view.ts";
 const routes = [
   {
     path: "/app/cuisine/:id",
@@ -37,6 +38,11 @@ const routes = [
       <food-view name=${params.food} restaurant=${params.restaurant}></food-view>`
   },
   {
+    path: "/app/restaurant/:restaurant/food/:food/edit",
+    view: (params: Switch.Params) => html`
+      <food-edit-view name=${params.food} restaurant=${params.restaurant}></food-edit-view>`
+  },
+  {
     path: "/",
     redirect: "/app"
   }
@@ -53,6 +59,7 @@ define({
     "all-restaurants": AllRestaurantsElement, 
     "restaurant-view": RestaurantViewElement,
     "food-view": FoodViewElement,
+    "food-edit-view": FoodEditViewElement,
     "mu-auth": Auth.Provider,
     "mu-history": History.Provider,
     "mu-store": class AppStore
