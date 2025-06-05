@@ -8,6 +8,7 @@ export type Msg =
         {
         originalName: string;
         food: Food;
+        macros: object;
         onSuccess?: () => void;
         onFailure?: (err: Error) => void;
       }

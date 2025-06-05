@@ -87,23 +87,28 @@ function saveFood(
   msg: {
     originalName: string;
     food: Food;
+    macros: object;
   },
   user: Auth.User
 ) {
+  const foodWithUpdatedMacros: Food = {
+    ...msg.food,
+    macros: msg.macros as Food["macros"]
+  };
+
   return fetch(`/api/foods/${msg.originalName}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
       ...Auth.headers(user)
     },
-    body: JSON.stringify(msg.food)
+    body: JSON.stringify(foodWithUpdatedMacros)
   })
     .then((response: Response) => {
       if (response.status === 200) return response.json();
-      else
-        throw new Error(
-          `Failed to save profile for ${msg.food.food_name}`
-        );
+      throw new Error(
+        `Failed to save profile for ${foodWithUpdatedMacros.food_name}`
+      );
     })
     .then((json: unknown) => {
       if (json) return json as Food;
