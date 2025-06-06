@@ -67,10 +67,45 @@ export class FoodEditViewElement extends View<Model, Msg> {
 
           <fieldset>
             <legend>Macronutrients</legend>
-            <label>Calories: <input type="number" name="macros.calories" required /></label>
-            <label>Protein (g): <input type="number" name="macros.protein" required /></label>
-            <label>Carbs (g): <input type="number" name="macros.carbs" required /></label>
-            <label>Fat (g): <input type="number" name="macros.fat" required /></label>
+            <label>
+              Calories:
+              <input
+                type="number"
+                name="macros.calories"
+                required
+                .value=${this.food?.macros.calories ?? ""}
+              />
+            </label>
+
+            <label>
+              Protein (g):
+              <input
+                type="number"
+                name="macros.protein"
+                required
+                .value=${this.food?.macros.protein ?? ""}
+              />
+            </label>
+
+            <label>
+              Carbs (g):
+              <input
+                type="number"
+                name="macros.carbs"
+                required
+                .value=${this.food?.macros.carbs ?? ""}
+              />
+            </label>
+
+            <label>
+              Fat (g):
+              <input
+                type="number"
+                name="macros.fat"
+                required
+                .value=${this.food?.macros.fat ?? ""}
+              />
+            </label>
           </fieldset>
         </mu-form>
       </main>
@@ -80,11 +115,34 @@ export class FoodEditViewElement extends View<Model, Msg> {
 handleSubmit(event: Form.SubmitEvent<any>) {
   const raw = event.detail;
 
+  const existing = this.food ?? {
+    food_name: "",
+    pic: "",
+    ingredients: [],
+    macros: {
+      calories: 0,
+      protein: 0,
+      carbs: 0,
+      fat: 0
+    }
+  };
+
   const macros = {
-    calories: Number(raw["macros.calories"]),
-    protein: Number(raw["macros.protein"]),
-    carbs: Number(raw["macros.carbs"]),
-    fat: Number(raw["macros.fat"])
+    calories: raw["macros.calories"] !== undefined && raw["macros.calories"] !== ""
+      ? Number(raw["macros.calories"])
+      : existing.macros.calories,
+
+    protein: raw["macros.protein"] !== undefined && raw["macros.protein"] !== ""
+      ? Number(raw["macros.protein"])
+      : existing.macros.protein,
+
+    carbs: raw["macros.carbs"] !== undefined && raw["macros.carbs"] !== ""
+      ? Number(raw["macros.carbs"])
+      : existing.macros.carbs,
+
+    fat: raw["macros.fat"] !== undefined && raw["macros.fat"] !== ""
+      ? Number(raw["macros.fat"])
+      : existing.macros.fat
   };
 
   const ingredients = typeof raw.ingredients === "string"
@@ -92,8 +150,8 @@ handleSubmit(event: Form.SubmitEvent<any>) {
     : raw.ingredients;
 
   const food: Food = {
-    food_name: raw.food_name,
-    pic: raw.pic,
+    food_name: raw.food_name || existing.food_name,
+    pic: raw.pic || existing.pic,
     ingredients,
     macros
   };
@@ -103,7 +161,7 @@ handleSubmit(event: Form.SubmitEvent<any>) {
     {
       originalName: this.name,
       food,
-      macros, // this is now clean and complete
+      macros,
       onSuccess: () =>
         History.dispatch(this, "history/navigate", {
           href: `/app/restaurant/${this.restaurant}/food/${food.food_name}`,
@@ -111,7 +169,7 @@ handleSubmit(event: Form.SubmitEvent<any>) {
       onFailure: (error: Error) => console.error("ERROR:", error)
     }
   ]);
-  }
+}
 
   static styles =[ reset.styles,
   css`
