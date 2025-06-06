@@ -77,30 +77,41 @@ export class FoodEditViewElement extends View<Model, Msg> {
     `;
   }
 
-    handleSubmit(event: Form.SubmitEvent<Food>) {
-    const raw = event.detail;
+handleSubmit(event: Form.SubmitEvent<any>) {
+  const raw = event.detail;
 
-    // Convert ingredients string to array (if it came as a string)
-    const food: Food = {
-        ...raw,
-        ingredients: typeof raw.ingredients === "string"
-        ? raw.ingredients.split(",").map((i: string) => i.trim())
-        : raw.ingredients
-    };
+  const macros = {
+    calories: Number(raw["macros.calories"]),
+    protein: Number(raw["macros.protein"]),
+    carbs: Number(raw["macros.carbs"]),
+    fat: Number(raw["macros.fat"])
+  };
 
-    this.dispatchMessage([
-        "food/save",
-        {
-        originalName: this.name,
-        food,
-        onSuccess: () =>
-            History.dispatch(this, "history/navigate", {
-            href: `/app/restaurant/${this.restaurant}/food/${food.food_name}`,
-            }),
-        onFailure: (error: Error) => console.error("ERROR:", error)
-        }
-    ]);
+  const ingredients = typeof raw.ingredients === "string"
+    ? raw.ingredients.split(",").map((i: string) => i.trim())
+    : raw.ingredients;
+
+  const food: Food = {
+    food_name: raw.food_name,
+    pic: raw.pic,
+    ingredients,
+    macros
+  };
+
+  this.dispatchMessage([
+    "food/save",
+    {
+      originalName: this.name,
+      food,
+      macros, // this is now clean and complete
+      onSuccess: () =>
+        History.dispatch(this, "history/navigate", {
+          href: `/app/restaurant/${this.restaurant}/food/${food.food_name}`,
+        }),
+      onFailure: (error: Error) => console.error("ERROR:", error)
     }
+  ]);
+  }
 
   static styles =[ reset.styles,
   css`
